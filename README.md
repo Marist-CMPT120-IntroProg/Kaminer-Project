@@ -13,7 +13,7 @@ Locations include:
 -Temple
 -Sunken Ship
 -Ski Slope
--Chairlife
+-Chair Lift
 -Ski Lodge
 -Parking Lot
 
