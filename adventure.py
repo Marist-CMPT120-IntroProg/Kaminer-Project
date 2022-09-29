@@ -1,7 +1,6 @@
 
 counter = 0 
-title = "Mountain Escape"
-introduction = "- An interactive text adventure where you are stranded on top of a mountain with only one goal. Find the lost treasure stolen by pirates and escape. Navigate the snow ridden mountain and the ocean to find what you seek and get back to civilization safely. "
+
 next = "Press ENTER to continue your quest"
 begin = "Press ENTER to begin your quest"
 closer = "Hit enter to take a closer look" 
@@ -27,10 +26,20 @@ lot = "Realizing escape is near, you kick off your skis. As you run through the 
 clot = "Finally in the second to last row you find a car that stands alone, getting in and flipping down the visor a key falls in your lap. Turning the key in the ignition the car miracously sputters to life."
 credits = "As you leave, you hear a voice emenating from all arouind that says, thank you and goodbye."
 
+def initiation():
+    global introduction
+
+    title = ("\u0332".join("Mountain Escape"))
+    print(title)
+    username = str(input("Please type your username and hit enter: "))
+    introduction = "An interactive text adventure where you are stranded on top of a mountain with only one goal. " + username.capitalize() + ", you must find the lost treasure stolen by pirates and escape. Navigate the snow ridden mountain and the ocean to find what you seek and get back to civilization safely."
+    print(introduction)
+
+
 def game(): 
     global counter
-
-    print(title + introduction)
+    
+    initiation()
 
     start = input(begin)
     counter = counter + 1
