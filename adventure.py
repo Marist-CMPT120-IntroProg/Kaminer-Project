@@ -40,90 +40,106 @@ def game():
     global counter
     
     initiation()
+#########################################
+    commands = ["north","south","east","west","help","quit"]
 
-    start = input(begin)
-    counter = counter + 1
+    while True:
+    
+        user_movement = input("Which direction would you like to go next: ").lower() 
+        
+        if user_movement in commands:
 
-    print(mountain) #1
-    more = input(closer)
-    print(cmountain) #1.5
+            if user_movement == commands[4]:
+                print("Valid commands are north, south, east, west, help, and quit")
+            if user_movement == commands[5]:
+                break
+        else: 
+            print("Please enter a valid command")
+            continue
+#########################################
+        start = input(begin)
+        counter = counter + 1
 
-    start = input(next)
-    counter = counter + 1
+        print(mountain) #1
+        more = input(closer)
+        print(cmountain) #1.5
 
-    print(beach) #2
-    more = input(closer)
-    print(cbeach) #2.5
+        start = input(next)
+        counter = counter + 1
 
-    start = input(next)
-    counter = counter + 1
+        print(beach) #2
+        more = input(closer)
+        print(cbeach) #2.5
 
-    print(ocean) #3
-    more = input(closer)
-    print(cocean) #3.5
+        start = input(next)
+        counter = counter + 1
 
-
-    start = input(next)
-    counter = counter + 1
-
-    print(temple) #4
-    more = input(closer)
-    print(ctemple) #4.5
-
-
-    start = input(next)
-    counter = counter + 1
-
-    print(ship) #5
-    more = input(closer)
-    print(cship) #5.5
-
-
-    start = input(next)
-    counter = counter + 1
-
-    print(cliff) #6
-    more = input(closer)
-    print(ccliff) #6.5
+        print(ocean) #3
+        more = input(closer)
+        print(cocean) #3.5
 
 
-    start = input(next)
-    counter = counter + 1
+        start = input(next)
+        counter = counter + 1
 
-    print(slope) #7
-    more = input(closer)
-    print(cslope) #7.5
-
-
-    start = input(next)
-    counter = counter + 1
-
-    print(lift) #8
-    more = input(closer)
-    print(clift) #8.5
+        print(temple) #4
+        more = input(closer)
+        print(ctemple) #4.5
 
 
-    start = input(next)
-    counter = counter + 1
+        start = input(next)
+        counter = counter + 1
 
-    print(lodge) #9
-    more = input(closer)
-    print(clodge) #9.5
-
-
-    start = input(next)
-    counter = counter + 1
-
-    print(lot) #10
-    more = input(closer)
-    print(clot) #10.5
+        print(ship) #5
+        more = input(closer)
+        print(cship) #5.5
 
 
-    start = input(next)
-   
+        start = input(next)
+        counter = counter + 1
+
+        print(cliff) #6
+        more = input(closer)
+        print(ccliff) #6.5
 
 
-    print("Total number of stops:", counter)
+        start = input(next)
+        counter = counter + 1
 
-    print(credits)
+        print(slope) #7
+        more = input(closer)
+        print(cslope) #7.5
+
+
+        start = input(next)
+        counter = counter + 1
+
+        print(lift) #8
+        more = input(closer)
+        print(clift) #8.5
+
+
+        start = input(next)
+        counter = counter + 1
+
+        print(lodge) #9
+        more = input(closer)
+        print(clodge) #9.5
+
+
+        start = input(next)
+        counter = counter + 1
+
+        print(lot) #10
+        more = input(closer)
+        print(clot) #10.5
+
+
+        start = input(next)
+    
+
+
+        print("Total number of stops:", counter)
+
+        print(credits)
 game()
