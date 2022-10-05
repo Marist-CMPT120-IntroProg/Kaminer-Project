@@ -1,5 +1,5 @@
 
-counter = 0 
+counter = 1 
 
 next = "Press ENTER to continue your quest"
 begin = "Press ENTER to begin your quest"
@@ -59,7 +59,7 @@ def game():
     lodge = "ski lodge"
     lot = "parking lot"
     location = "mountain top"
-    
+    visited = [mountain] 
 
 
 
@@ -71,31 +71,63 @@ def game():
         if user_movement in commands:
             
             if user_movement == commands[0]: #north
-                if location == mountain: 
-                    location = beach 
-                    print(d_beach)
+                if location == mountain:
+                    location = beach
+                    if location in visited:
+                        print("You are back at the " + location)
+                        continue
+                    else: 
+                        print(d_beach)
+                        visited.append(location)
+                        counter += 1
                     
                 elif location == beach:
                     location = ocean
-                    print(d_ocean) 
+                    if location in visited:
+                        print("You are back at the " + location)
+                        continue
+                    else: 
+                        print(d_ocean)
+                        visited.append(location)
+                        counter += 1 
                     
                 elif location == ocean:
                     location = temple
-                    print(d_temple)
+                    if location in visited:
+                        print("You are back at the " + location)
+                        continue
+                    else: 
+                        print(d_temple)
+                        visited.append(location)
+                        counter += 1
+                    
                     
                 elif location == lift:
                     location = slope
                     print("You are back on the slope")
                 else: 
                     print("You bump into an invisible wall and hear a voice telling you to go in a diffrent direction")  
-            if user_movement == commands[1]: #south
+            elif user_movement == commands[1]: #south
                 if location == ship:
                     location = cliff
-                    print(d_cliff) 
+                    if location in visited:
+                        print("You are back at the " + location)
+                        continue
+                    else: 
+                        print(d_cliff)
+                        visited.append(location)
+                        counter = counter + 1
+                    
                     
                 elif location == slope:
                     location = lift
-                    print(d_lift) 
+                    if location in visited:
+                        print("You are back at the " + location)
+                        continue
+                    else: 
+                        print(d_lift)
+                        visited.append(location)
+                        counter += 1 
                     
                 elif location == temple:
                     location = ocean
@@ -108,14 +140,27 @@ def game():
                     print("You are back at the mountain top") 
                 else: 
                     print("You bump into an invisible wall and hear a voice telling you to go in a diffrent direction")
-            if user_movement == commands[2]: #east
+            elif user_movement == commands[2]: #east
                 if location == mountain:
                     location = cliff
-                    print(d_cliff) 
+                    if location in visited:
+                        print("You are back at the " + location)
+                        continue
+                    else: 
+                        print(d_cliff)
+                        visited.append(location)
+                        counter += 1 
                    
                 elif location == temple:
                     location = ship 
-                    print(d_ship)
+                    if location in visited:
+                        print("You are back at the " + location)
+                        continue
+                    else: 
+                        print(d_ship)
+                        visited.append(location)
+                        counter += 1
+
                 elif location == slope:
                     location = mountain
                     print("You are back at the mountain top")
@@ -127,26 +172,50 @@ def game():
                     print("You are back at the lodge")
                 else: 
                     print("You bump into an invisible wall and hear a voice telling you to go in a diffrent direction")
-            if user_movement == commands[3]: #west
+            elif user_movement == commands[3]: #west
                 if location == mountain:
                     location = slope
-                    print(d_slope)
+                    if location in visited:
+                        print("You are back at the " + location)
+                        continue
+                    else: 
+                        print(d_slope)
+                        visited.append(location)
+                        counter += 1
                     
                 elif location == slope:
                     location = lodge
-                    print(d_lodge)
+                    if location in visited:
+                        print("You are back at the " + location)
+                        continue
+                    else: 
+                        print(d_lodge)
+                        visited.append(location)
+                        counter += 1
                     
                 elif location == lodge:
                     location = lot
-                    print(d_lot)
+                    if location in visited:
+                        print("You are back at the " + location)
+                        continue
+                    else: 
+                        print(d_lot)
+                        visited.append(location)
+                        counter += 1
                     
                 elif location == cliff:
                     location = mountain
                     print("You are back at the mountain top")
-                   
+
                 elif location == lift:
                     location = lodge
-                    print(d_lodge)
+                    if location in visited:
+                        print("You are back at the " + location)
+                        continue
+                    else: 
+                        print(d_lodge)
+                        visited.append(location)
+                        counter += 1
 
                 elif location == ship:
                     location = temple
@@ -156,14 +225,16 @@ def game():
                     print("Do you have the treasure you are searching for? If yes type quit as your next direction to break the simulation.")
                 else: 
                     print("You bump into an invisible wall and hear a voice telling you to go in a diffrent direction")
-            if user_movement == commands[4]: #help
+            elif user_movement == commands[4]: #help
                 print("Valid commands are north, south, east, west, help, and quit")
-            if user_movement == commands[5]: #quit
+            elif user_movement == commands[5]: #quit
                 break
         else: 
             print("Please enter a valid command")
             continue
-    print(counter) 
+    print("Total number of locations visited:", counter)
+    print("All locations visited: ", visited)
+    print(credits)
 #########################################
        # start = input(begin)
        # counter = counter + 1
