@@ -15,22 +15,23 @@ d_temple = "Inside the temple it's overgrown with coral, sharks dart in and out 
 ctemple = "Further in, swimming around the decrepit colums, you come upon a dias with a diagram depicitng a pathway to a ship."
 d_ship = "Following the map, you surface next a half sunken ship, once on board all you see is how time has eaten away at the once beatiful craftsmanship."
 cship = "Looking through the rotten deck of the ship you see the treasure you have been searching for."
-d_cliff = "After grabbing the treasure, you look around and see a rope ladder on the side of the mountain. You climb up the ladder to the top of the cliff, in the distance you see the area where you started."
+d_cliff = "You can see the mast of a ship in the distance and an ocean that stretches as far as the eye can see."
 ccliff = "Around you is rocky terrain dotted with small plants. Behind one of the rocks you see a key glinting in the setting sun."
 d_slope = "Going past where you started, taking the path on the right, you hop on the skis and start to descend"
 cslope = "Through the bottom of the clouds you see the snow covered landscape with sun beating down on it and a chairlift in the distance."
 d_lift = "Once at the base of the chairlift, you can see rust covering the chairs."
-clift = "Upon a closer look you see that the door to the control room is open and you spot a keyhole. Using the key you found at the cliff, you slowly turn it and hear the ski lift start to turn on and creak alive."
+clift = "Upon a closer look you see that the door to the control room is open and you spot a keyhole."
 d_lodge ="Stopping right before the parking lot, you enter an old ski lodge."
 clodge = "Once inside you see cans of food and mice scurrying around. Trays and utensils are strewn everywhere, as if people left in a hurry. Grabbing some of the untouched cans of food, you continue on skis down towards the parking lot."
-d_lot = "Realizing escape is near, you kick off your skis. As you run through the parking lot, you glance around seeing how some of the cars are ensnared by vines. One even has a tree going through it. You begin to wonder not where you are but how long it has been."
+d_lot = "You kick off your skis. Running through the parking lot, you glance around seeing how some of the cars are ensnared by vines. One even has a tree going through it. You begin to wonder not where you are but how long it has been."
 clot = "Finally in the second to last row you find a car that stands alone, getting in and flipping down the visor a key falls in your lap. Turning the key in the ignition the car miracously sputters to life."
-credits = "As you leave, you hear a voice emenating from all arouind that says, thank you and goodbye."
+
 
 
 
 def initiation():
     global introduction
+    global username
 
     title = ("\u0332".join("Mountain Escape"))
     print(title)
@@ -40,11 +41,18 @@ def initiation():
     start = input(begin)
     print(d_mountain)
 
+def ending():
+    credits = "As you leave, you hear a voice emenating from all arouind that says, thank you " + username + " for finding my treasure that was stolen long ago. I bid you farwell."
+    copyright = ("\u0332".join("Copyright 2022 by Tyler Kaminer"))
+    print("Total number of locations visited:", counter)
+    print("All locations visited: ", *visited)
+    print(credits)
+    print(copyright)
 
 
 def game(): 
     global counter
-    
+    global visited
     initiation()
 #########################################
     commands = ["north","south","east","west","help","quit"]
@@ -232,9 +240,7 @@ def game():
         else: 
             print("Please enter a valid command")
             continue
-    print("Total number of locations visited:", counter)
-    print("All locations visited: ", visited)
-    print(credits)
+    ending()
 #########################################
        # start = input(begin)
        # counter = counter + 1
