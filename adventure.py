@@ -15,7 +15,7 @@ lodge = {"name": "Ski Lodge", "summary": "Stopping right before the parking lot,
 lot = {"name": "Parking Lot", "summary": "You kick off your skis. Running through the parking lot, you glance around seeing how some of the cars are ensnared by vines. One even has a tree going through it. You begin to wonder not where you are but how long it has been.", "details": "Finally in the second to last row you find a car that stands alone, getting in and flipping down the visor a key falls in your lap. Turning the key in the ignition the car miracously sputters to life.", "was_visited": False }
 
 locations  = [mountain, beach, ocean, temple, ship, cliff, slope, lift, lodge, lot ]
-
+current_loc = locations[0]
 
 
 def initiation():
@@ -28,26 +28,25 @@ def initiation():
     introduction = "An interactive text adventure where you are stranded on top of a mountain with only one goal. " + username.capitalize() + ", you must find the lost treasure stolen by pirates and escape. Navigate the snow ridden mountain and the ocean to find what you seek and get back to civilization safely."
     print(introduction)
     start = input(begin)
-    print(d_mountain)
+    print(mountain["summary"])
 
 def ending():
     credits = "As you leave, you hear a voice emenating from all arouind that says, thank you " + username + " for finding my treasure that was stolen long ago. I bid you farwell."
     copyright = ("\u0332".join("Copyright 2022 by Tyler Kaminer"))
     print("Total number of locations visited:", counter)
-    print("All locations visited: ", *visited)
+   
     print(credits)
     print(copyright)
 
 
 def game(): 
     global counter
-    global visited
+    global current_loc 
     initiation()
 #########################################
 
     commands = ["north","south","east","west","examine", "help","quit"]
     
-   
     
 
 
@@ -60,182 +59,119 @@ def game():
         if user_movement in commands:
             
             if user_movement == commands[0]: #north
-                if location == mountain:
-                    location = beach
-                    if location in visited:
-                        print("You are back at the " + location)
-                        continue
-                    else: 
-                        print(d_beach)
-                        visited.append(location)
-                        counter += 1
+                if current_loc == locations[0]:
+                    current_loc = locations[1]
+                    print(current_loc["summary"])
+
+                elif current_loc == locations[1]:
+                    current_loc = locations[2]
+                    print(current_loc["summary"])
                     
-                elif location == beach:
-                    location = ocean
-                    if location in visited:
-                        print("You are back at the " + location)
-                        continue
-                    else: 
-                        print(d_ocean)
-                        visited.append(location)
-                        counter += 1 
+                elif current_loc == locations[2]:
+                    current_loc = locations[3]
+                    print(current_loc["summary"])
+                   
+
                     
-                elif location == ocean:
-                    location = temple
-                    if location in visited:
-                        print("You are back at the " + location)
-                        continue
-                    else: 
-                        print(d_temple)
-                        visited.append(location)
-                        counter += 1
-                    
-                    
-                elif location == lift:
-                    location = slope
+                elif current_loc == locations[7]:
+                    current_loc = locations[6]
                     print("You are back on the slope")
                 else: 
                     print("You bump into an invisible wall and hear a voice telling you to go in a diffrent direction")  
             elif user_movement == commands[1]: #south
-                if location == ship:
-                    location = cliff
-                    if location in visited:
-                        print("You are back at the " + location)
-                        continue
-                    else: 
-                        print(d_cliff)
-                        visited.append(location)
-                        counter = counter + 1
+                if current_loc == locations[4]:
+                    current_loc = locations[5]
+                    print(current_loc["summary"])
+
                     
+                elif current_loc == locations[6]:
+                    current_loc = locations[7]
+                    print(current_loc["summary"])
+
                     
-                elif location == slope:
-                    location = lift
-                    if location in visited:
-                        print("You are back at the " + location)
-                        continue
-                    else: 
-                        print(d_lift)
-                        visited.append(location)
-                        counter += 1 
-                    
-                elif location == temple:
-                    location = ocean
+                elif current_loc == locations[3]:
+                    current_loc = locations[2]
                     print("You are back in the ocean")
-                elif location == ocean:
-                    location = beach
+                elif current_loc == locations[2]:
+                    current_loc = locations[1]
                     print("You are back at the beach")
-                elif location == beach:
-                    location = mountain
+                elif current_loc == locations[1]:
+                    current_loc = locations[0]
                     print("You are back at the mountain top") 
                 else: 
                     print("You bump into an invisible wall and hear a voice telling you to go in a diffrent direction")
             elif user_movement == commands[2]: #east
-                if location == mountain:
-                    location = cliff
-                    if location in visited:
-                        print("You are back at the " + location)
-                        continue
-                    else: 
-                        print(d_cliff)
-                        visited.append(location)
-                        counter += 1 
+                if current_loc == locations[0]:
+                    current_loc = locations[5]
+                    print(current_loc["summary"])
                    
-                elif location == temple:
-                    location = ship 
-                    if location in visited:
-                        print("You are back at the " + location)
-                        continue
-                    else: 
-                        print(d_ship)
-                        visited.append(location)
-                        counter += 1
+                elif current_loc == locations[3]:
+                    current_loc = locations[4] 
+                    print(current_loc["summary"])
 
-                elif location == slope:
-                    location = mountain
+                elif current_loc == locations[6]:
+                    current_loc = locations[0]
                     print("You are back at the mountain top")
-                elif location == lodge:
-                    location = slope
+                elif current_loc == locations[8]:
+                    current_loc = locations[6]
                     print("You are back on the slope")
-                elif location == lot:
-                    location = lodge
+                elif current_loc == locations[9]:
+                    current_loc = locations[8]
                     print("You are back at the lodge")
                 else: 
                     print("You bump into an invisible wall and hear a voice telling you to go in a diffrent direction")
             elif user_movement == commands[3]: #west
-                if location == mountain:
-                    location = slope
-                    if location in visited:
-                        print("You are back at the " + location)
-                        continue
-                    else: 
-                        print(d_slope)
-                        visited.append(location)
-                        counter += 1
-                    
-                elif location == slope:
-                    location = lodge
-                    if location in visited:
-                        print("You are back at the " + location)
-                        continue
-                    else: 
-                        print(d_lodge)
-                        visited.append(location)
-                        counter += 1
-                    
-                elif location == lodge:
-                    location = lot
-                    if location in visited:
-                        print("You are back at the " + location)
-                        continue
-                    else: 
-                        print(d_lot)
-                        visited.append(location)
-                        counter += 1
-                    
-                elif location == cliff:
-                    location = mountain
+                if current_loc == locations[0]:
+                    current_loc = locations[6]
+                    print(current_loc["summary"])
+
+                elif current_loc == locations[6]:
+                    current_loc = locations[8]
+                    print(current_loc["summary"])
+
+                elif current_loc == locations[8]:
+                    current_loc = locations[9]
+                    print(current_loc["summary"])
+
+                elif current_loc == locations[5]:
+                    current_loc = locations[0]
                     print("You are back at the mountain top")
 
-                elif location == lift:
-                    location = lodge
-                    if location in visited:
-                        print("You are back at the " + location)
-                        continue
-                    else: 
-                        print(d_lodge)
-                        visited.append(location)
-                        counter += 1
+                elif current_loc == locations[7]:
+                    current_loc = locations[8]
+                    print(current_loc["summary"])
 
-                elif location == ship:
-                    location = temple
+
+                elif current_loc == locations[4]:
+                    current_loc = locations[3]
                     print("You are back in the temple")
 
-                elif location == lot:
+                elif current_loc == locations[9]:
                     print("Do you have the treasure you are searching for? If yes type quit as your next direction to break the simulation.")
                 else: 
                     print("You bump into an invisible wall and hear a voice telling you to go in a diffrent direction")
 
             elif user_movement == commands[4]: #examine
-                if location == mountain:
-                    print(e_mountain)
-                elif location == beach:
-                    print(e_beach)
-                elif location == ocean:
-                    print(e_ocean)
-                elif location == temple:
-                    print(e_temple)
-                elif location == ship:
-                    print(e_ship)
-                elif location == cliff:
-                    print(e_cliff)
-                elif location == slope:
-                    print(e_slope)
-                elif location == lift:
-                    print(e_lift)
-                elif location == lodge:
-                    print(e_lodge)
-                elif location == lot:
-                    print(e_lot)
+                if current_loc == locations[0]:
+                    print(current_loc["details"])
+                elif current_loc == locations[1]:
+                    print(current_loc["details"])
+                elif current_loc == locations[2]:
+                    print(current_loc["details"])
+                elif current_loc == locations[3]:
+                    print(current_loc["details"])
+                elif current_loc == locations[4]:
+                    print(current_loc["details"])
+                elif current_loc == locations[5]:
+                    print(current_loc["details"])
+                elif current_loc == locations[6]:
+                    print(current_loc["details"])
+                elif current_loc == locations[7]:
+                    print(current_loc["details"])
+                elif current_loc == locations[8]:
+                    print(current_loc["details"])
+                elif current_loc == locations[9]:
+                    print(current_loc["details"])
                 
             elif user_movement == commands[5]: #help
                 print("Valid commands are north, south, east, west, help, and quit")
