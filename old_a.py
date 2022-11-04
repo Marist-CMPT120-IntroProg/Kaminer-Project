@@ -7,6 +7,7 @@ closer = "Hit enter to take a closer look"
 
 d_mountain = "You slowly open your eyes and look around, all you see is clouds, there is a path to a cliff to your left, a path leading down straight ahead, and on your right a slope."
 e_mountain = "The path on the left leads towards a beach and the one on the right drops down with a pair of skis at the top."
+
 d_beach = "You decide to head down to the left towards the beach that goes in either direction as far as you can see."
 counter = 1 
 
