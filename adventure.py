@@ -17,6 +17,20 @@ lot = {"name": "Parking Lot", "summary": "You kick off your skis. Running throug
 locations  = [mountain, beach, ocean, temple, ship, cliff, slope, lift, lodge, lot ]
 current_loc = locations[0]
 
+movement = [
+#current_loc north south east west
+[mountain, beach, None, cliff, slope],
+[beach, ocean, mountain, None, None],
+[ocean, temple, ocean, None, None],
+[temple, None, ocean, ship, None],
+[ship, None, cliff, None, temple],
+[cliff, None, None, None, mountain],
+[slope, None, lift, mountain, lodge],
+[lift, slope, None, None, lodge],
+[lodge, None, None, slope, lot],
+[lot, None, None, lodge, None],
+
+]
 
 def initiation():
     global introduction

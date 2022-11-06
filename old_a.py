@@ -35,7 +35,6 @@ e_lot = "Finally in the second to last row you find a car that stands alone, get
 
 
 
-
 def initiation():
     global introduction
     global username
