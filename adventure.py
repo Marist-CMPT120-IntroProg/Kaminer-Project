@@ -1,9 +1,11 @@
 
 counter = 0 
+score = 0
+
 
 begin = "Press ENTER to begin your quest"
 
-mountain = {"name": "Mountain Top", "summary": "You slowly open your eyes and look around, all you see is clouds, there is a path to a cliff to your left, a path leading down straight ahead, and on your right a slope.", "details": "The path on the left leads towards a beach and the one on the right drops down with a pair of skis at the top.", "was_visited": False }
+mountain = {"name": "Mountain Top", "summary": "You slowly open your eyes and look around, all you see is clouds, there is a path to a cliff to your left, a path leading down straight ahead, and on your right a slope.", "details": "The path on the left leads towards a beach and the one on the right drops down with a pair of skis at the top.", "was_visited": True }
 beach = {"name": "Beach", "summary": "You decide to head down to the left towards the beach that goes in either direction as far as you can see.", "details": "Upon closer inspection you see some chairs and beach umbrellas along the beach, glancing at the ocean you see a giant shadow of a structure looming underwater.", "was_visited": False }
 ocean = {"name": "Ocean", "summary": "You enter the ocean to swim towards the mysterious underwater building.", "details": "Taking a moment to stop and glance around underwater, you see beatiful coral all around almost as if the ocean is glowing. Fish dart in and out of the coral, you notice some sharks in the distance.", "was_visited": False }
 temple = {"name": "Temple", "summary": "Inside the temple it's overgrown with coral, sharks dart in and out of the columns that look like they are about to fall any second.", "details": "Further in, swimming around the decrepit colums, you come upon a dias with a diagram depicitng a pathway to a ship.", "was_visited": False }
@@ -21,7 +23,7 @@ movement = [
 #current_loc north south east west
 [mountain, beach, None, cliff, slope],
 [beach, ocean, mountain, None, None],
-[ocean, temple, ocean, None, None],
+[ocean, temple, beach, None, None],
 [temple, None, ocean, ship, None],
 [ship, None, cliff, None, temple],
 [cliff, None, None, None, mountain],
@@ -36,6 +38,7 @@ def initiation():
     global introduction
     global username
 
+
     title = ("\u0332".join("Mountain Escape"))
     print(title)
     username = str(input("Please type your username and hit enter: "))
@@ -43,6 +46,7 @@ def initiation():
     print(introduction)
     start = input(begin)
     print(mountain["summary"])
+    
 
 def ending():
     credits = "As you leave, you hear a voice emenating from all arouind that says, thank you " + username + " for finding my treasure that was stolen long ago. I bid you farwell."
@@ -52,18 +56,22 @@ def ending():
     print(credits)
     print(copyright)
     print(counter)
+    print(score)
 
 def move(current_loc, direction):
-    global new_loc 
+    global new_loc
+    g
     new_loc = movement[locations.index(current_loc)][direction]
-    return new_loc 
-
+    return new_loc
+   
 
 def game(): 
     global counter
     global current_loc 
     global commands
     global direction
+    global score
+   
     initiation()
 #########################################
 
@@ -82,9 +90,13 @@ def game():
                     print("You have hit an invisible wall, please pick a different direction")
                     continue
                 else:
+                    if new_loc["was_visited"] == False:
+                        new_loc["was_visited"] == True
+                        score = score + 100
                     current_loc = new_loc
                 print(current_loc["summary"])
                 counter = counter +  1
+                
 
 
             elif user_movement == commands[1]: #south
@@ -94,6 +106,9 @@ def game():
                     print("You have hit an invisible wall, please pick a different direction")
                     continue
                 else:
+                    if new_loc["was_visited"] == False:
+                        new_loc["was_visited"] == True
+                        score = score + 100
                     current_loc = new_loc
                 print(current_loc["summary"])
                 counter = counter +  1
@@ -107,6 +122,9 @@ def game():
                     print("You have hit an invisible wall, please pick a different direction")
                     continue
                 else:
+                    if new_loc["was_visited"] == False:
+                        new_loc["was_visited"] == True
+                        score = score + 100
                     current_loc = new_loc
                 print(current_loc["summary"])
                 counter = counter +  1
@@ -119,6 +137,9 @@ def game():
                     print("You have hit an invisible wall, please pick a different direction")
                     continue
                 else:
+                    if new_loc["was_visited"] == False:
+                        new_loc["was_visited"] == True
+                        score = score + 100
                     current_loc = new_loc
                 print(current_loc["summary"])
                 counter = counter +  1
