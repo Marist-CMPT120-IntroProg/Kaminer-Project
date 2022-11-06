@@ -1,5 +1,5 @@
 
-counter = 1 
+counter = 0 
 
 begin = "Press ENTER to begin your quest"
 
@@ -51,21 +51,24 @@ def ending():
    
     print(credits)
     print(copyright)
+    print(counter)
+
+def move(current_loc, direction):
+    global new_loc 
+    new_loc = movement[locations.index(current_loc)][direction]
+    return new_loc 
 
 
 def game(): 
     global counter
     global current_loc 
+    global commands
+    global direction
     initiation()
 #########################################
 
     commands = ["north","south","east","west","examine", "help","quit"]
     
-    
-
-
-
-
     while True:
     
         user_movement = input("Which direction would you like to go next: ").lower() 
@@ -73,97 +76,52 @@ def game():
         if user_movement in commands:
             
             if user_movement == commands[0]: #north
-                if current_loc == locations[0]:
-                    current_loc = locations[1]
-                    print(current_loc["summary"])
+                direction = 1
+                move(current_loc,direction)
+                if new_loc == None:
+                    print("You have hit an invisible wall, please pick a different direction")
+                    continue
+                else:
+                    current_loc = new_loc
+                print(current_loc["summary"])
+                counter = counter +  1
 
-                elif current_loc == locations[1]:
-                    current_loc = locations[2]
-                    print(current_loc["summary"])
-                    
-                elif current_loc == locations[2]:
-                    current_loc = locations[3]
-                    print(current_loc["summary"])
-                   
 
-                    
-                elif current_loc == locations[7]:
-                    current_loc = locations[6]
-                    print("You are back on the slope")
-                else: 
-                    print("You bump into an invisible wall and hear a voice telling you to go in a diffrent direction")  
             elif user_movement == commands[1]: #south
-                if current_loc == locations[4]:
-                    current_loc = locations[5]
-                    print(current_loc["summary"])
+                direction = 2
+                move(current_loc,direction)
+                if new_loc == None:
+                    print("You have hit an invisible wall, please pick a different direction")
+                    continue
+                else:
+                    current_loc = new_loc
+                print(current_loc["summary"])
+                counter = counter +  1
+                
+                
 
-                    
-                elif current_loc == locations[6]:
-                    current_loc = locations[7]
-                    print(current_loc["summary"])
-
-                    
-                elif current_loc == locations[3]:
-                    current_loc = locations[2]
-                    print("You are back in the ocean")
-                elif current_loc == locations[2]:
-                    current_loc = locations[1]
-                    print("You are back at the beach")
-                elif current_loc == locations[1]:
-                    current_loc = locations[0]
-                    print("You are back at the mountain top") 
-                else: 
-                    print("You bump into an invisible wall and hear a voice telling you to go in a diffrent direction")
             elif user_movement == commands[2]: #east
-                if current_loc == locations[0]:
-                    current_loc = locations[5]
-                    print(current_loc["summary"])
-                   
-                elif current_loc == locations[3]:
-                    current_loc = locations[4] 
-                    print(current_loc["summary"])
+                direction = 3
+                move(current_loc,direction)
+                if new_loc == None:
+                    print("You have hit an invisible wall, please pick a different direction")
+                    continue
+                else:
+                    current_loc = new_loc
+                print(current_loc["summary"])
+                counter = counter +  1
+                
 
-                elif current_loc == locations[6]:
-                    current_loc = locations[0]
-                    print("You are back at the mountain top")
-                elif current_loc == locations[8]:
-                    current_loc = locations[6]
-                    print("You are back on the slope")
-                elif current_loc == locations[9]:
-                    current_loc = locations[8]
-                    print("You are back at the lodge")
-                else: 
-                    print("You bump into an invisible wall and hear a voice telling you to go in a diffrent direction")
             elif user_movement == commands[3]: #west
-                if current_loc == locations[0]:
-                    current_loc = locations[6]
-                    print(current_loc["summary"])
-
-                elif current_loc == locations[6]:
-                    current_loc = locations[8]
-                    print(current_loc["summary"])
-
-                elif current_loc == locations[8]:
-                    current_loc = locations[9]
-                    print(current_loc["summary"])
-
-                elif current_loc == locations[5]:
-                    current_loc = locations[0]
-                    print("You are back at the mountain top")
-
-                elif current_loc == locations[7]:
-                    current_loc = locations[8]
-                    print(current_loc["summary"])
-
-
-                elif current_loc == locations[4]:
-                    current_loc = locations[3]
-                    print("You are back in the temple")
-
-                elif current_loc == locations[9]:
-                    print("Do you have the treasure you are searching for? If yes type quit as your next direction to break the simulation.")
-                else: 
-                    print("You bump into an invisible wall and hear a voice telling you to go in a diffrent direction")
+                direction = 4
+                move(current_loc,direction)
+                if new_loc == None:
+                    print("You have hit an invisible wall, please pick a different direction")
+                    continue
+                else:
+                    current_loc = new_loc
+                print(current_loc["summary"])
+                counter = counter +  1
 
             elif user_movement == commands[4]: #examine
                 if current_loc == locations[0]:
