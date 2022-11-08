@@ -60,7 +60,7 @@ def ending():
 
 def move(current_loc, direction):
     global new_loc
-    g
+    
     new_loc = movement[locations.index(current_loc)][direction]
     return new_loc
    
@@ -91,8 +91,9 @@ def game():
                     continue
                 else:
                     if new_loc["was_visited"] == False:
-                        new_loc["was_visited"] == True
+                        new_loc["was_visited"] = True
                         score = score + 100
+                        
                     current_loc = new_loc
                 print(current_loc["summary"])
                 counter = counter +  1
@@ -107,8 +108,9 @@ def game():
                     continue
                 else:
                     if new_loc["was_visited"] == False:
-                        new_loc["was_visited"] == True
+                        new_loc["was_visited"] = True
                         score = score + 100
+                        
                     current_loc = new_loc
                 print(current_loc["summary"])
                 counter = counter +  1
@@ -123,8 +125,9 @@ def game():
                     continue
                 else:
                     if new_loc["was_visited"] == False:
-                        new_loc["was_visited"] == True
+                        new_loc["was_visited"] = True
                         score = score + 100
+
                     current_loc = new_loc
                 print(current_loc["summary"])
                 counter = counter +  1
@@ -138,8 +141,9 @@ def game():
                     continue
                 else:
                     if new_loc["was_visited"] == False:
-                        new_loc["was_visited"] == True
+                        new_loc["was_visited"] = True
                         score = score + 100
+                        
                     current_loc = new_loc
                 print(current_loc["summary"])
                 counter = counter +  1
