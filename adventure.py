@@ -63,7 +63,20 @@ def move(current_loc, direction):
     
     new_loc = movement[locations.index(current_loc)][direction]
     return new_loc
-   
+
+def arrived(current_loc,counter):
+    print(current_loc["summary"])
+    counter = counter +  1
+    return counter
+
+def visited(new_loc,score):
+    if new_loc["was_visited"] == False:
+        new_loc["was_visited"] = True
+        score = score + 100
+                        
+    current_loc = new_loc
+
+    return current_loc, score
 
 def game(): 
     global counter
@@ -90,85 +103,51 @@ def game():
                     print("You have hit an invisible wall, please pick a different direction")
                     continue
                 else:
-                    if new_loc["was_visited"] == False:
-                        new_loc["was_visited"] = True
-                        score = score + 100
-                        
-                    current_loc = new_loc
-                print(current_loc["summary"])
-                counter = counter +  1
+                    current_loc,score = visited(new_loc,score)
                 
-
-
+                counter = arrived(current_loc,counter)
+                
+                
             elif user_movement == commands[1]: #south
                 direction = 2
                 move(current_loc,direction)
+
                 if new_loc == None:
                     print("You have hit an invisible wall, please pick a different direction")
                     continue
                 else:
-                    if new_loc["was_visited"] == False:
-                        new_loc["was_visited"] = True
-                        score = score + 100
-                        
-                    current_loc = new_loc
-                print(current_loc["summary"])
-                counter = counter +  1
+                    current_loc,score = visited(new_loc,score)
+
+                counter = arrived(current_loc,counter)
                 
                 
 
             elif user_movement == commands[2]: #east
                 direction = 3
                 move(current_loc,direction)
+
                 if new_loc == None:
                     print("You have hit an invisible wall, please pick a different direction")
                     continue
                 else:
-                    if new_loc["was_visited"] == False:
-                        new_loc["was_visited"] = True
-                        score = score + 100
+                    current_loc,score = visited(new_loc,score)
 
-                    current_loc = new_loc
-                print(current_loc["summary"])
-                counter = counter +  1
+                counter = arrived(current_loc,counter)
                 
-
             elif user_movement == commands[3]: #west
                 direction = 4
                 move(current_loc,direction)
+
                 if new_loc == None:
                     print("You have hit an invisible wall, please pick a different direction")
                     continue
                 else:
-                    if new_loc["was_visited"] == False:
-                        new_loc["was_visited"] = True
-                        score = score + 100
-                        
-                    current_loc = new_loc
-                print(current_loc["summary"])
-                counter = counter +  1
+                    current_loc,score = visited(new_loc,score)
+
+                counter = arrived(current_loc,counter)
 
             elif user_movement == commands[4]: #examine
-                if current_loc == locations[0]:
-                    print(current_loc["details"])
-                elif current_loc == locations[1]:
-                    print(current_loc["details"])
-                elif current_loc == locations[2]:
-                    print(current_loc["details"])
-                elif current_loc == locations[3]:
-                    print(current_loc["details"])
-                elif current_loc == locations[4]:
-                    print(current_loc["details"])
-                elif current_loc == locations[5]:
-                    print(current_loc["details"])
-                elif current_loc == locations[6]:
-                    print(current_loc["details"])
-                elif current_loc == locations[7]:
-                    print(current_loc["details"])
-                elif current_loc == locations[8]:
-                    print(current_loc["details"])
-                elif current_loc == locations[9]:
-                    print(current_loc["details"])
+                print(current_loc["details"])
                 
             elif user_movement == commands[5]: #help
                 print("Valid commands are north, south, east, west, help, and quit")
