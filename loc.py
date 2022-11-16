@@ -1,5 +1,5 @@
 
-class locale: 
+class Locale: 
         def __init__(self,name, summary, details, was_visited = False):
             self.name = name
             self.summary = summary
