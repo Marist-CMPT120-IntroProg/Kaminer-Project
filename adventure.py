@@ -5,7 +5,7 @@ score = 0
 
 begin = "Press ENTER to begin your quest"
 
-mountain = {"name": "Mountain Top", "summary": "You slowly open your eyes and look around, all you see is clouds, there is a path to a cliff to your left, a path leading down straight ahead, and on your right a slope.", "details": "The path on the left leads towards a beach and the one on the right drops down with a pair of skis at the top.", "was_visited": True }
+mountain = {"name": "Mountain Top", "summary": "You slowly open your eyes and look around, all you see is clouds, there is a path to a cliff to your left, a path leading down straight ahead, and on your right a slope.", "details": "The path on the left leads towards a beach and the one on the right drops down with a pair of skis at the top.", "was_visited": False }
 beach = {"name": "Beach", "summary": "You decide to head down to the left towards the beach that goes in either direction as far as you can see.", "details": "Upon closer inspection you see some chairs and beach umbrellas along the beach, glancing at the ocean you see a giant shadow of a structure looming underwater.", "was_visited": False }
 ocean = {"name": "Ocean", "summary": "You enter the ocean to swim towards the mysterious underwater building.", "details": "Taking a moment to stop and glance around underwater, you see beatiful coral all around almost as if the ocean is glowing. Fish dart in and out of the coral, you notice some sharks in the distance.", "was_visited": False }
 temple = {"name": "Temple", "summary": "Inside the temple it's overgrown with coral, sharks dart in and out of the columns that look like they are about to fall any second.", "details": "Further in, swimming around the decrepit colums, you come upon a dias with a diagram depicitng a pathway to a ship.", "was_visited": False }
@@ -46,6 +46,7 @@ def initiation():
     print(introduction)
     start = input(begin)
     print(mountain["summary"])
+    mountain["was-visited"] = True
     
 
 def ending():
