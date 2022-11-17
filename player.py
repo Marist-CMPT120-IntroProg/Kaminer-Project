@@ -1,38 +1,35 @@
-import world
-import loc
+from world import *
+from loc import *
 
 
-class player:
-    def __init__(self,p_name, world = "Shadow Realm",current_loc = "Mountain Top",counter = 0,score = 0):
-        self.name = p_name
+class Player:
+    def __init__(self,p_name, world):
+        self.p_name = p_name
         self.world = world
-        self.current_loc = current_loc
-        self.count = counter
-        self.score = score
+        self.current_loc = World.all_locales[0].name
+        self.counter = 0
+        self.score = 0
         
-    def username(self, p_name):
-       self.p_name = str(input("Please type your username and hit enter: "))
-       return self.p_name
+    
 
-    def move(current_loc, direction):
+    def move(self,current_loc, direction):
         
-        new_loc = world.all_locales[locations.index(current_loc)][direction]
+        new_loc = self.world.movement[self.world.fetch_names().index(current_loc)][direction] 
+        self.counter +=  1
 
-        return new_loc
+        return new_loc, self.counter
 
-    def arrived(self,counter):
-        if loc.was_visted == False:
-        counter = counter +  1
-        return counter
+    
 
-    def points(new_loc,score):
-        if new_loc["was_visited"] == False:
-            new_loc["was_visited"] = True
-            score = score + 100
+    def points(self,new_loc,score):
+        #how do I call the was_visited from loc
+        if new_loc.was_visited == False:
+            new_loc.was_visited = True
+            self.score +=  100
                             
         current_loc = new_loc
 
-        return current_loc, score
+        return current_loc, self.score
     
 
 

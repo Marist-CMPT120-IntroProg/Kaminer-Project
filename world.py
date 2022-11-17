@@ -28,16 +28,16 @@ class World:
    
         self.movement = [
         #current_loc north south east west
-        ["Mountain Top", "Beach", None, "Cliff", "Ski Slope"],
-        ["Beach", "Ocean", "Mountain Top", None, None],
-        ["Ocean", "Temple", "Beach", None, None],
-        ["Temple", None, "Ocean", "Ship", None],
-        ["Ship", None, "Cliff", None, "Temple"],
-        ["Cliff", None, None, None, "Mountain Top"],
-        ["Ski Slope", None, "ChairLift", "Mountain Top", "Ski Lodge"],
-        ["ChairLift", "Ski Slope", None, None, "Ski Lodge"],
-        ["Ski Lodge", None, None, "Ski Slope", "Parking Lot"],
-        ["Parking Lot", None, None, "Ski Lodge", None],
+        [self.all_locales[0].name, self.all_locales[1].name, None, self.all_locales[5].name, self.all_locales[6].name], #mountain
+        [self.all_locales[1].name, self.all_locales[2].name, self.all_locales[0].name, None, None], #beach
+        [self.all_locales[2].name, self.all_locales[3].name, self.all_locales[1].name, None, None], #ocean
+        [self.all_locales[3].name, None, self.all_locales[2].name, self.all_locales[4].name, None], #temple
+        [self.all_locales[4].name, None, self.all_locales[5].name, None, self.all_locales[3].name], #ship
+        [self.all_locales[5].name, None, None, None, self.all_locales[0].name], #cliff
+        [self.all_locales[6].name, None, self.all_locales[7].name, self.all_locales[0].name, self.all_locales[8].name], #slope
+        [self.all_locales[7].name, self.all_locales[6].name, None, None, self.all_locales[8].name], #lift
+        [self.all_locales[8].name, None, None, self.all_locales[6].name, self.all_locales[9].name], #lodge
+        [self.all_locales[9].name, None, None, self.all_locales[8].name, None], #lot
 
         ]
 
@@ -60,5 +60,9 @@ class World:
         for i in range(0, len(self.all_locales)):
             list_locations.append(self.all_locales[i].name)
         return list_locations
-    def reposition(self):
-        if 
+    def lift_on(self):
+        key = None
+        if key == True:
+            self.movement[8][3] = "Mountain Top"
+        else:
+            print("You are not carrying the key for this, go find it")
