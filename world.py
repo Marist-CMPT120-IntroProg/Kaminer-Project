@@ -43,16 +43,16 @@ class World:
 
         self.movement = [
         #current_loc north south east west
-        [self.all_locales[0].name, self.all_locales[1].name, None, self.all_locales[5].name, self.all_locales[6].name], #mountain
-        [self.all_locales[1].name, self.all_locales[2].name, self.all_locales[0].name, None, None], #beach
-        [self.all_locales[2].name, self.all_locales[3].name, self.all_locales[1].name, None, None], #ocean
-        [self.all_locales[3].name, None, self.all_locales[2].name, self.all_locales[4].name, None], #temple
-        [self.all_locales[4].name, None, self.all_locales[5].name, None, self.all_locales[3].name], #ship
-        [self.all_locales[5].name, None, None, None, self.all_locales[0].name], #cliff
-        [self.all_locales[6].name, None, self.all_locales[7].name, self.all_locales[0].name, self.all_locales[8].name], #slope
-        [self.all_locales[7].name, self.all_locales[6].name, None, None, self.all_locales[8].name], #lift
-        [self.all_locales[8].name, None, None, self.all_locales[6].name, self.all_locales[9].name], #lodge
-        [self.all_locales[9].name, None, None, self.all_locales[8].name, None], #lot
+        [self.all_locales[0], self.all_locales[1], None, self.all_locales[5], self.all_locales[6]], #mountain
+        [self.all_locales[1], self.all_locales[2], self.all_locales[0], None, None], #beach
+        [self.all_locales[2], self.all_locales[3], self.all_locales[1], None, None], #ocean
+        [self.all_locales[3], None, self.all_locales[2], self.all_locales[4], None], #temple
+        [self.all_locales[4], None, self.all_locales[5], None, self.all_locales[3]], #ship
+        [self.all_locales[5], None, None, None, self.all_locales[0]], #cliff
+        [self.all_locales[6], None, self.all_locales[7], self.all_locales[0], self.all_locales[8]], #slope
+        [self.all_locales[7], self.all_locales[6], None, None, self.all_locales[8]], #lift
+        [self.all_locales[8], None, None, self.all_locales[6], self.all_locales[9]], #lodge
+        [self.all_locales[9], None, None, self.all_locales[8], None], #lot
 
         ]
 
