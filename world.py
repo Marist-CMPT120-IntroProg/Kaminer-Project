@@ -26,6 +26,21 @@ e_lot = "Finally in the second to last row you find a car that stands alone, get
 class World:
     def __init__(self):
    
+        
+        self.all_locales = [
+            loc.Locale("Mountain Top", s_mountain, e_mountain, False), 
+            loc.Locale("Beach", s_beach, e_beach, False),
+            loc.Locale("Ocean", s_ocean, e_ocean, False),
+            loc.Locale("Temple", s_temple, e_temple, False),
+            loc.Locale("Ship", s_ship,e_ship, False),
+            loc.Locale("Cliff", s_cliff, e_cliff, False),
+            loc.Locale("Ski Slope", s_slope, e_slope, False),
+            loc.Locale("ChairLift", s_lift, e_lift, False),
+            loc.Locale("Ski Lodge", s_lodge, e_lodge, False),
+            loc.Locale("Parking Lot", s_lot, e_lot, False),
+
+        ]
+
         self.movement = [
         #current_loc north south east west
         [self.all_locales[0].name, self.all_locales[1].name, None, self.all_locales[5].name, self.all_locales[6].name], #mountain
@@ -41,19 +56,6 @@ class World:
 
         ]
 
-        self.all_locales = [
-            loc.Locale("Mountain Top", s_mountain, e_mountain, False), 
-            loc.Locale("Beach", s_beach, e_beach, False),
-            loc.Locale("Ocean", s_ocean, e_ocean, False),
-            loc.Locale("Temple", s_temple, e_temple, False),
-            loc.Locale("Ship", s_ship,e_ship, False),
-            loc.Locale("Cliff", s_cliff, e_cliff, False),
-            loc.Locale("Ski Slope", s_slope, e_slope, False),
-            loc.Locale("ChairLift", s_lift, e_lift, False),
-            loc.Locale("Ski Lodge", s_lodge, e_lodge, False),
-            loc.Locale("Parking Lot", s_lot, e_lot, False),
-
-        ]
     
     def fetch_names(self):
         list_locations = []
