@@ -22,6 +22,12 @@ s_lot = "You kick off your skis. Running through the parking lot, you glance aro
 e_lot = "Finally in the second to last row you find a car that stands alone, getting in and flipping down the visor a key falls in your lap. Turning the key in the ignition the car miracously sputters to life."
 
 
+mountain_npc = "Welcome to the shadow realm weary traveler, my names Axel, to find the treasure that you seek out Polaris to lead you down the right path"
+beach_npc = "Surfs up dude, you got to ride the wave all the way out, cause everyones surfing"
+ship_npc = "A riddle for though who dares tread upon my ship, for I am Vinton \'Blunderbuss\' Holmes and this be my ship ye walk on. \n This item has shiny things inside,\n You\'d have to wait to figure out what,\n Once you have found \'X\' which marks the spot.\n What object is it?"
+lift_npc = "Rhonda is the name. \n This use to be a mountain of popularity before Itin, the God of Obsucirty, decided to punish pirates for stealing his treasure. The lift will still run, I lost the key near the mountain top many moons ago."  
+
+
 
 class World:
     def __init__(self):
@@ -56,6 +62,9 @@ class World:
 
         ]
 
+        self.npc = [mountain_npc, None, None, None, ship_npc, None, None, lift_npc, None, None]
+
+        self.answers = ["treasure chest","treasure","buried treasure","chest"]
     
     def fetch_names(self):
         list_locations = []

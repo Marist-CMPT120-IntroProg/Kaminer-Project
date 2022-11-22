@@ -39,7 +39,7 @@ def game():
     initiation()
 #########################################
 
-    commands = ["north","south","east","west","examine", "help","quit"]
+    commands = ["north","south","east","west","examine", "interact","help","quit"]
     
     while True:
     
@@ -66,10 +66,14 @@ def game():
 
             elif user_movement == commands[4]: #examine
                 print(P.current_loc.details)
-                
-            elif user_movement == commands[5]: #help
-                print("Valid commands are north, south, east, west, examine, help, and quit")
-            elif user_movement == commands[6]: #quit
+
+            elif user_movement == commands[5]: #interact
+                P.talk()
+
+            elif user_movement == commands[6]: #help
+                print("Valid commands are north, south, east, west, examine, interact, help, and quit")
+
+            elif user_movement == commands[7]: #quit
                 break
         else: 
             print("Please enter a valid command")
