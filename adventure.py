@@ -5,6 +5,9 @@ from player import *
 begin = "Press ENTER to begin your quest"
 username = None
 
+
+
+
 W = World()
 P = Player(username, W)
 
