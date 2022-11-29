@@ -2,8 +2,13 @@ from world import *
 from loc import *
 from player import *
 
+
+
 begin = "Press ENTER to begin your quest"
 username = None
+
+
+
 
 
 
@@ -15,6 +20,7 @@ def initiation():
     global introduction
     global username
 
+
     title = ("\u0332".join("Mountain Escape"))
     print(title)
     username = str(input("Please type your username and hit enter: "))
@@ -23,17 +29,30 @@ def initiation():
     start = input(begin)
     print(W.all_locales[0].summary)
     W.all_locales[0].was_visited = True
-    
-def ending():
-    credits = "As you leave, you hear a voice emenating from all arouind that says, thank you " + username + " for finding my treasure that was stolen long ago. I bid you farwell."
-    copyright = ("\u0332".join("Copyright 2022 by Tyler Kaminer"))
-    print("Total number of locations visited:", P.counter)
-   
-    print(credits)
-    print(copyright)
-    print(P.counter)
-    print(P.score)
 
+def ending():
+    while True:
+        play = input("Would you like to replay the game? Yes? No?: ").lower()
+        if play == "yes":
+
+            P.score = 100
+            P.counter = 0
+            P.current_loc = W.all_locales[0] # how do I make the entire game reset 
+            game()
+
+        elif play == "no":
+
+            credits = " As you leave, you hear a voice emenating from all arouind that says, thank you " + username + " for finding my treasure that was stolen long ago. I bid you farwell."
+            copyright = (" \u0332".join("Copyright 2022 by Tyler Kaminer"))
+            print("\n" + credits + "\n")
+            print("\n Total number of locations visited:", P.counter)
+            print("\n Total Score:", P.score)
+            print("\n" + copyright + "\n")
+            break
+
+        else:
+            print("Please choose between yes or no")
+            continue
 def game(): 
     
     global commands
@@ -42,7 +61,7 @@ def game():
     initiation()
 #########################################
 
-    commands = ["north","south","east","west","examine", "interact","help","quit"]
+    commands = ["north","south","east","west","examine", "interact","help","quit", "invictus"]
     
     while True:
     
@@ -71,13 +90,20 @@ def game():
                 print(P.current_loc.details)
 
             elif user_movement == commands[5]: #interact
-                P.talk()
+                password = P.talk()
 
             elif user_movement == commands[6]: #help
                 print("Valid commands are north, south, east, west, examine, interact, help, and quit")
 
             elif user_movement == commands[7]: #quit
                 break
+        
+ 
+# getting on the ski lift means you lose - make that they can pick up the key and doing so changes the variable that holds means you can go east in the chairlift back to the mountain top - make it so they have an option to turn on the chairlift and go that way or not.
+# Make sure are variables that need to be reset if the game restarts are reset  
+            elif user_movement == commands[8]: # google the quote that vinton mumbled and type in the title of the poem
+                    print("The floor renches open and you fall into the abyss, looking above you, you spot a treasure chest glinting, grabbing it you open your eyes to realize you have escaped the Shadow Realm")
+                    break 
         else: 
             print("Please enter a valid command")
             continue

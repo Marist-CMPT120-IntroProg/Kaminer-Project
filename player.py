@@ -2,6 +2,10 @@ from world import *
 from loc import *
 
 
+
+
+
+
 class Player:
     def __init__(self,p_name, world):
         self.p_name = p_name
@@ -9,6 +13,7 @@ class Player:
         self.current_loc = world.all_locales[0]
         self.counter = 0
         self.score = 100
+        
         
     
 
@@ -39,6 +44,7 @@ class Player:
         else:
             print(new_loc)
             self.current_loc,self.score = self.points(new_loc, self.score)
+   
         
     def talk(self):
         if self.world.npc[self.world.all_locales.index(self.current_loc)] == ship_npc:
@@ -48,9 +54,14 @@ class Player:
                 riddle_answer = input("What is the answer to Vintons Riddle: ").lower() 
                 if riddle_answer in self.world.answers:
                     self.score += 1000
-                    print("HUZZAH! You have guessed correctly")
                     
-                    return self.score
+                    password = "\nMy head is bloody, but unbowed....\n I am the master of my fate;\n I am the captain of my soul."
+
+                    print("\n HUZZAH! You have guessed correctly.")
+                    print("\n As Vinton fades away you hear him mumble, \n"+ password +"\n")
+                    
+                    
+                    return self.score, password
                 else:
                     print("You have guessed wrong, may Davy Jones claim your soul")
             else:
@@ -60,6 +71,11 @@ class Player:
             print("You look around but there is no one in sight")
         else:
             print(self.world.npc[self.world.all_locales.index(self.current_loc)])
+
+    
+
+    
+        
 
     
 

@@ -22,7 +22,7 @@ s_lot = "You kick off your skis. Running through the parking lot, you glance aro
 e_lot = "Finally in the second to last row you find a car that stands alone, getting in and flipping down the visor a key falls in your lap. Turning the key in the ignition the car miracously sputters to life."
 
 
-mountain_npc = "Welcome to the shadow realm weary traveler, my names Axel, to find the treasure that you seek, Polaris will start you down the right path"
+mountain_npc = "Welcome to the shadow realm weary traveler, my names Axel, to find the treasure that you seek, Polaris will start you down the right path. Let it be known while a riddle will give you an escape, beware the chair."
 beach_npc = "Surfs up dude, you got to ride the wave all the way out, cause everyone\'s surfing"
 ocean_npc = "You are underwater why would there be anyone here"
 ship_npc = "A riddle for though who dares tread upon my ship, for I am Vinton \'Blunderbuss\' Holmes and this be my ship ye walk on. \n This item has shiny things inside,\n You\'d have to wait to figure out what,\n Once you have found \'X\' which marks the spot.\n What object is it?" 
