@@ -6,7 +6,8 @@ from player import *
 
 begin = "Press ENTER to begin your quest"
 username = None
-
+key = None
+death = False
 
 
 
@@ -34,7 +35,7 @@ def ending():
     while True:
         play = input("Would you like to replay the game? Yes? No?: ").lower()
         if play == "yes":
-
+            
             P.score = 100
             P.counter = 0
             P.current_loc = W.all_locales[0] # how do I make the entire game reset 
@@ -87,9 +88,10 @@ def game():
                 
 
             elif user_movement == commands[4]: #examine
-                print(P.current_loc.details)
+                P.inspection(P.current_loc)
 
             elif user_movement == commands[5]: #interact
+                
                 password = P.talk()
 
             elif user_movement == commands[6]: #help
@@ -99,7 +101,7 @@ def game():
                 break
         
  
-# getting on the ski lift means you lose - make that they can pick up the key and doing so changes the variable that holds means you can go east in the chairlift back to the mountain top - make it so they have an option to turn on the chairlift and go that way or not.
+# how do I end the game entirely from inside 
 # Make sure are variables that need to be reset if the game restarts are reset  
             elif user_movement == commands[8]: # google the quote that vinton mumbled and type in the title of the poem
                     print("The floor renches open and you fall into the abyss, looking above you, you spot a treasure chest glinting, grabbing it you open your eyes to realize you have escaped the Shadow Realm")

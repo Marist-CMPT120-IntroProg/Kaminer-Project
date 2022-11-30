@@ -1,5 +1,6 @@
 from world import *
 from loc import *
+from sys import exit
 
 
 
@@ -13,6 +14,8 @@ class Player:
         self.current_loc = world.all_locales[0]
         self.counter = 0
         self.score = 100
+        self.key = False
+        
         
         
     
@@ -64,14 +67,40 @@ class Player:
                     return self.score, password
                 else:
                     print("You have guessed wrong, may Davy Jones claim your soul")
+            
             else:
                 print("You have already guessed correctly, Vinton is longer of this world.")
 
+        elif self.world.npc[self.world.all_locales.index(self.current_loc)] == lift_npc:
+            print(lift_npc)
+            if self.key == True:
+                while True:
+                    
+                    go = input("\nWould you like to ride the chairlift? Yes? No?: ").lower()
+                    if go == "yes":
+                        print(" \nMWHAHAHAHAHA \nI, Itin will now claim your soul\n")
+                        # how do i break out of the entire loop and end the game
+                        exit() # this doesn't work because the ending function doesnt run
+                    elif go == "no":
+                        print("\nThe chairlift starts running as you turn the key, you hear a voice beckoning you in the other direction further down the mountain\n")
+                        break
+                    else:
+                        print("Please pick yes or no")
+                        continue
         elif self.world.npc[self.world.all_locales.index(self.current_loc)] == None:
             print("You look around but there is no one in sight")
         else:
             print(self.world.npc[self.world.all_locales.index(self.current_loc)])
 
+    def inspection(self,current_loc):
+        if current_loc.name == self.world.all_locales[5].name:
+            self.key = True
+            print(current_loc.details)
+            
+        else: 
+            print(current_loc.details)
+            
+        return self.key
     
 
     
