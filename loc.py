@@ -7,7 +7,7 @@ class Locale:
             self.was_visited = was_visited
         def __str__(self):
             if self.was_visited == True:
-                been = ("You are at the " + self.name)
+                been = ("\nYou are at the " + self.name)
     
             elif self.was_visited == False:
                 self.was_visited == True

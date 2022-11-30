@@ -42,7 +42,7 @@ class Player:
     def possible(self,direction):
         new_loc, self.counter = self.move(direction)
         if new_loc == None:
-            print("You have hit an invisible wall, please pick a different direction")
+            print("\n" '\033[35m' "You have hit an invisible wall, please pick a different direction" '\033[0m')
             
         else:
             print(new_loc)
@@ -54,41 +54,40 @@ class Player:
     
             if self.score < 1000:
                 print(ship_npc)
-                riddle_answer = input("What is the answer to Vintons Riddle: ").lower() 
+                riddle_answer = input("\nWhat is the answer to Vintons Riddle: ").lower() 
                 if riddle_answer in self.world.answers:
                     self.score += 1000
                     
-                    password = "\nMy head is bloody, but unbowed....\n I am the master of my fate;\n I am the captain of my soul."
+                    password = "\n" '\033[91m' "My head is bloody, but unbowed....\n I am the master of my fate;\n I am the captain of my soul."'\033[0m'
 
-                    print("\n HUZZAH! You have guessed correctly.")
-                    print("\n As Vinton fades away you hear him mumble, \n"+ password +"\n")
+                    print("\n" '\033[94m' " HUZZAH! You have guessed correctly."'\033[0m')
+                    print("\n" '\033[94m' " As Vinton fades away you hear him mumble, \n"+ password +'\033[0m' "\n")
                     
                     
                     return self.score, password
                 else:
-                    print("You have guessed wrong, may Davy Jones claim your soul")
+                    print("\nYou have guessed wrong, may Davy Jones claim your soul")
             
             else:
-                print("You have already guessed correctly, Vinton is longer of this world.")
+                print("\n" '\033[35m' "You have already guessed correctly, Vinton is longer of this world." '\033[0m')
 
         elif self.world.npc[self.world.all_locales.index(self.current_loc)] == lift_npc:
             print(lift_npc)
             if self.key == True:
                 while True:
                     
-                    go = input("\nWould you like to ride the chairlift? Yes? No?: ").lower()
+                    go = input("\n" '\033[94m'"Oh you already have the key, well get it started and hop on."'\033[0m' "\n Would you like to ride the chairlift? Yes? No?: ").lower()
                     if go == "yes":
-                        print(" \nMWHAHAHAHAHA \nI, Itin will now claim your soul\n")
-                        # how do i break out of the entire loop and end the game
-                        exit() # this doesn't work because the ending function doesnt run
-                    elif go == "no":
-                        print("\nThe chairlift starts running as you turn the key, you hear a voice beckoning you in the other direction further down the mountain\n")
+                        print("\n"'\033[91m'" MWHAHAHAHAHA \nI, Itin will now claim your soul"'\033[0m' )
+                        return False
+                    elif go == "no": 
+                        print("\n" '\033[35m' "The chairlift starts running as you turn the key, you hear a voice beckoning you in the other direction further down the mountain"'\033[0m')
                         break
                     else:
-                        print("Please pick yes or no")
+                        print("\nPlease pick yes or no")
                         continue
         elif self.world.npc[self.world.all_locales.index(self.current_loc)] == None:
-            print("You look around but there is no one in sight")
+            print("\n" '\033[35m' "You look around but there is no one in sight"'\033[0m')
         else:
             print(self.world.npc[self.world.all_locales.index(self.current_loc)])
 
