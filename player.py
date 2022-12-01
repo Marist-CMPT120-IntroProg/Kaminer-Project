@@ -60,8 +60,8 @@ class Player:
                     
                     password = "\n" '\033[91m' "My head is bloody, but unbowed....\n I am the master of my fate;\n I am the captain of my soul."'\033[0m'
 
-                    print("\n" '\033[94m' " HUZZAH! You have guessed correctly."'\033[0m')
-                    print("\n" '\033[94m' " As Vinton fades away you hear him mumble, \n"+ password +'\033[0m' "\n")
+                    print("\n" '\033[94m' " HUZZAH! You have guessed correctly. Take my treasure and flee this forsaken land."'\033[0m')
+                    print("\n" '\033[35m' " As Vinton fades away you hear him mumble, \n"+ password +'\033[0m' "\n")
                     
                     
                     return self.score, password
@@ -76,12 +76,12 @@ class Player:
             if self.key == True:
                 while True:
                     
-                    go = input("\n" '\033[94m'"Oh you already have the key, well get it started and hop on."'\033[0m' "\n Would you like to ride the chairlift? Yes? No?: ").lower()
+                    go = input("\n" '\033[94m'"Oh you already have the key, get it started then and hop on."'\033[0m' "\n Would you like to ride the chairlift? Yes? No?: ").lower()
                     if go == "yes":
                         print("\n"'\033[91m'" MWHAHAHAHAHA \nI, Itin will now claim your soul"'\033[0m' )
                         return False
                     elif go == "no": 
-                        print("\n" '\033[35m' "The chairlift starts running as you turn the key, you hear a voice beckoning you in the other direction further down the mountain"'\033[0m')
+                        print("\n" '\033[35m' "As you turn the key, the chairlift rumbles to life, but before you can get on you remember Axel\'s words, \"beware the chair\""'\033[0m')
                         break
                     else:
                         print("\nPlease pick yes or no")

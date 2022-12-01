@@ -7,7 +7,7 @@ from player import *
 begin = "\nPress ENTER to begin your quest"
 username = None
 key = None
-death = False
+
 
 def initiation():
     global introduction
@@ -39,7 +39,7 @@ def ending():
 
         elif play == "no":
 
-            credits = " \nAs you leave, you hear a voice emenating from all arouind that says, thank you " + username + " for finding my treasure that was stolen long ago. I bid you farwell."
+            credits = " \nAs you leave, you hear a voice emenating from all arouind that says, thank you " + username + " for looking for my treasure that was stolen long ago. I bid you farwell."
             copyright = ("\u0332".join("Copyright 2022 by Tyler Kaminer"))
             print("\n" + credits)
             print("\n" + copyright)
@@ -86,7 +86,7 @@ def game():
 
             elif user_movement == commands[5]: #interact
                 if P.talk() == False:
-                    print("\n" '\033[91m' "Itin has claimed your soul, bye bye"'\033[0m')
+                    print("\n" '\033[91m' "Itin has claimed your soul, goodbye."'\033[0m')
                     break
             elif user_movement == commands[6]: #help
                 print("\nValid commands are north, south, east, west, examine, interact, help, and quit")
