@@ -43,7 +43,7 @@ def ending():
             copyright = ("\u0332".join("Copyright 2022 by Tyler Kaminer"))
             print("\n" + credits)
             print("\n" + copyright)
-            break
+            exit()
 
         else:
             print("\nPlease choose between yes or no")
